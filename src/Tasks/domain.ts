@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-type TaskId = string;
+export type TaskId = string;
 
 export interface Task {
   id: TaskId;
@@ -16,7 +16,7 @@ export const addTask = (tasks: Task[], task: Task): Task[] => {
 };
 
 export const removeTask = (tasks: Task[], taskId: TaskId): Task[] => {
-  return [...tasks.filter(isTaskWithId(taskId))];
+  return [...tasks.filter(task => !isTaskWithId(taskId)(task))];
 };
 
 export const isTaskWithId = (taskId: TaskId) => (task: Task): boolean =>
