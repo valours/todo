@@ -1,6 +1,5 @@
-:space_invader:
-# todo for muggles
+# todo for muggles :space_invader:
 ### Subject
-react - hooks
-functional programming
-unit testing
+ - React (with a little hooks sauce)
+ - Functional programming
+ - Unit testing
