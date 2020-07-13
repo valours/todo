@@ -1,5 +1,5 @@
 import Button from "@material-ui/core/Button";
-import InputBase from "@material-ui/core/InputBase";
+import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import { random } from "faker";
 import React, { useState } from "react";
@@ -35,16 +35,28 @@ export default () => {
     resetTaskInput();
   };
 
+  const keyPress = (event: React.SyntheticEvent) => {
+    const { key } = event;
+    if (key === "Enter") {
+      addTaskHandler();
+      event.preventDefault();
+    }
+  };
+
   return (
     <>
-      <Paper component="form">
-        <InputBase
+      <Paper component="form" variant="outlined">
+        <TextField
           id="standard-basic"
           color="primary"
           value={task.title}
           onChange={updateTitleOfCurrentTask}
+          label="Nouvelle tâche"
+          variant="outlined"
+          size="small"
+          onKeyPress={keyPress}
         />
-        <Button onClick={addTaskHandler} variant="contained">
+        <Button onClick={addTaskHandler} size="large" variant="contained">
           Ajouter
         </Button>
       </Paper>
